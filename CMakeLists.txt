@@ -20,7 +20,7 @@
 # *
 # *
 
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.8)
 project(onboardsdk)
 
 set(CMAKE_VERBOSE_MAKEFILE OFF)
@@ -65,6 +65,8 @@ if (WAYPT2_CORE)
     add_definitions(-DWAYPT2_CORE)
 endif()
 
+find_package(ament_cmake REQUIRED)
+
 add_subdirectory(osdk-core)
 if (${CMAKE_SYSTEM_NAME} MATCHES Linux)
   add_subdirectory(sample/platform/linux)
@@ -97,3 +99,16 @@ INSTALL(DIRECTORY osdk-lib/${ARCH}/waypointv2-core-1.0.0/lib/
 ]]
 
 
+if(BUILD_TESTING)
+  find_package(ament_lint_auto REQUIRED)
+  # the following line skips the linter which checks for copyrights
+  # comment the line when a copyright and license is added to all source files
+  set(ament_cmake_copyright_FOUND TRUE)
+  # the following line skips cpplint (only works in a git repo)
+  # comment the line when this package is in a git repo and when
+  # a copyright and license is added to all source files
+  set(ament_cmake_cpplint_FOUND TRUE)
+  ament_lint_auto_find_test_dependencies()
+endif()
+
+ament_package()
