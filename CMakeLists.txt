@@ -77,7 +77,7 @@ if (${CMAKE_SYSTEM_NAME} MATCHES Linux)
 	  DESTINATION ${CMAKE_INSTALL_PREFIX}/include
 	  FILES_MATCHING PATTERN "*.h*")
 
-  INSTALL(DIRECTORY sample/core/src/flight_sample.cpp
+  INSTALL(DIRECTORY sample/core/src
 	  DESTINATION ${CMAKE_INSTALL_PREFIX}/share/src
 	  FILES_MATCHING PATTERN "*.c*")
 
