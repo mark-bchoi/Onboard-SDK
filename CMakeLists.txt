@@ -77,6 +77,10 @@ if (${CMAKE_SYSTEM_NAME} MATCHES Linux)
 	  DESTINATION ${CMAKE_INSTALL_PREFIX}/include
 	  FILES_MATCHING PATTERN "*.h*")
 
+  INSTALL(DIRECTORY sample/core/src/flight_sample.cpp
+	  DESTINATION ${CMAKE_INSTALL_PREFIX}/share/src
+	  FILES_MATCHING PATTERN "*.c*")
+
   INSTALL(DIRECTORY sample/platform/linux/osal
 	  DESTINATION ${CMAKE_INSTALL_PREFIX}/share/src
 	  FILES_MATCHING PATTERN "*.c*")
