@@ -51,7 +51,7 @@ elseif()
   add_definitions(-DDJIOSDK_HARDWARE_TYPE=0)
 endif()
 
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
+set(RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/libs)
 
 set(ADVANCED_SENSING 1)
@@ -69,7 +69,25 @@ find_package(ament_cmake REQUIRED)
 
 add_subdirectory(osdk-core)
 if (${CMAKE_SYSTEM_NAME} MATCHES Linux)
+
+  set(SAMPLE_INSTALL 1)
   add_subdirectory(sample/platform/linux)
+
+  INSTALL(DIRECTORY sample/platform/linux/
+	  DESTINATION ${CMAKE_INSTALL_PREFIX}/include
+	  FILES_MATCHING PATTERN "*.h*")
+
+  INSTALL(DIRECTORY sample/platform/linux/osal
+	  DESTINATION ${CMAKE_INSTALL_PREFIX}/share/src
+	  FILES_MATCHING PATTERN "*.c*")
+
+  INSTALL(DIRECTORY sample/platform/linux/hal
+	  DESTINATION ${CMAKE_INSTALL_PREFIX}/share/src
+	  FILES_MATCHING PATTERN "*.c*")
+
+  INSTALL(DIRECTORY sample/platform/linux/common
+	  DESTINATION ${CMAKE_INSTALL_PREFIX}/share/src
+	  FILES_MATCHING PATTERN "*.c*")
 endif()
 
 #[[
