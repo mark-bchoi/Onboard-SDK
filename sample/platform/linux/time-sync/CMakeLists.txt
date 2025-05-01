@@ -47,3 +47,8 @@ add_executable(time_sync_poll_sample
         ${CMAKE_CURRENT_SOURCE_DIR}/../common/dji_linux_environment.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/../common/dji_linux_helpers.cpp
         )
+
+if ( SAMPLE_INSTALL )
+  INSTALL(TARGETS time_sync_callback_sample time_sync_poll_sample
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/share/bin )
+endif ()  

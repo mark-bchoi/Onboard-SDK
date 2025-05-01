@@ -50,3 +50,8 @@ add_executable(payloads_async_sample
 add_executable(payloads_download_sample
         download_sample.cpp
         ${SOURCE_FILES})
+
+if ( SAMPLE_INSTALL )
+  INSTALL(TARGETS payloads_sync_sample payloads_async_sample payloads_download_sample
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/share/bin )
+endif ()  

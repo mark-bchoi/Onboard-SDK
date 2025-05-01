@@ -49,3 +49,9 @@ target_link_libraries(op_download_sample crypto)
 target_link_libraries(op_upload_sample crypto)
 
 target_link_libraries(om_download_sample crypto)
+
+
+if ( SAMPLE_INSTALL )
+  INSTALL(TARGETS op_download_sample op_upload_sample om_download_sample
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/share/bin )
+endif ()  

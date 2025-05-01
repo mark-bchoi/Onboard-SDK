@@ -61,3 +61,8 @@ target_link_libraries(${PROJECT_NAME}
   kcf_tracker
   ${OpenCV_LIBRARIES}
   )
+
+if ( SAMPLE_INSTALL )
+  INSTALL(TARGETS ${PROJECT_NAME}
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/share/bin )
+endif ()  

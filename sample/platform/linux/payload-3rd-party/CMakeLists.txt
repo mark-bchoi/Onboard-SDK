@@ -36,3 +36,8 @@ if (OSDK_HOTPLUG)
 endif ()
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
+
+if ( SAMPLE_INSTALL )
+  INSTALL(TARGETS ${PROJECT_NAME}
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/share/bin )
+endif ()  

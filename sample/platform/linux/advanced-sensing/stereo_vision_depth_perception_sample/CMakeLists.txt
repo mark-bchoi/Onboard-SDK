@@ -103,6 +103,11 @@ if (OPEN_CV_3_3_0_INSTALLED AND FOUND_OPENCV_VIZ)
                 ${OpenCV_LIBRARIES}
                 )
     endif ()
+    if ( SAMPLE_INSTALL )
+      INSTALL(TARGETS ${PROJECT_NAME}
+        DESTINATION ${CMAKE_INSTALL_PREFIX}/share/bin )
+    endif ()  
 else()
     message(STATUS "Did not find required libraries, stereo vision depth perception sample will not be compiled.")
 endif ()
+
